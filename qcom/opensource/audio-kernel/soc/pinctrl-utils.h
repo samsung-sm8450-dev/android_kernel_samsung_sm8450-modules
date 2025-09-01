@@ -1,1 +1,1 @@
-/home/dpi/qb5_8816/workspace/P4_1716/android/kernel_platform/./msm-kernel/drivers/pinctrl/pinctrl-utils.h
+/mnt/data2tb/LOS22/kernel/samsung/sm8450/drivers/pinctrl/pinctrl-utils.h
