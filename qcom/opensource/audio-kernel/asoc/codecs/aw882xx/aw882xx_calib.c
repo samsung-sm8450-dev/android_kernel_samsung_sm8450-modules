@@ -51,7 +51,7 @@ static DEFINE_MUTEX(g_cali_lock);
 #ifdef AW_CALI_STORE_EXAMPLE
  /*write cali to persist file example*/
 #define AWINIC_CALI_FILE  "/mnt/vendor/persist/factory/audio/aw_cali.bin"
-#define AW_INT_DEC_DIGIT 4
+#define AW_INT_DEC_DIGIT 10
 
 static void aw_fs_read(struct file *file, char *buf, size_t count, loff_t *pos)
 {
@@ -109,6 +109,7 @@ static int aw_cali_get_read_cali_re(int32_t *cali_re, int channel)
 	/*struct inode *node;*/
 	int f_size;
 	char *buf = NULL;
+	int32_t int_cali_re = 0;
 	loff_t pos = 0;
 	mm_segment_t fs;
 
@@ -140,7 +141,13 @@ static int aw_cali_get_read_cali_re(int32_t *cali_re, int channel)
 
 	set_fs(fs);
 
-	pr_info("%s: channel:%d cali_re: %d\n", __func__, channel, *cali_re);
+	if (sscanf(buf, "%d", &int_cali_re) == 1)
+		*cali_re = int_cali_re;
+	else
+		*cali_re = AW_ERRO_CALI_VALUE;
+
+	pr_info("%s: channel:%d buf:%s int_cali_re: %d\n",
+		__func__, channel, buf, int_cali_re);
 
 	kfree(buf);
 	buf = NULL;
