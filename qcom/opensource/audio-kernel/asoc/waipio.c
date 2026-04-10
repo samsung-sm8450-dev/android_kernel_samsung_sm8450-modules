@@ -2844,7 +2844,9 @@ static int msm_asoc_machine_probe(struct platform_device *pdev)
 	/* change card status to ONLINE */
 	dev_dbg(&pdev->dev, "%s: setting snd_card to ONLINE\n", __func__);
 	snd_card_set_card_status(SND_CARD_STATUS_ONLINE);
+#if IS_ENABLED(CONFIG_SND_SOC_SAMSUNG_AUDIO)
 	sdp_boot_print("%s: snd_card is ONLINE\n", __func__);
+#endif
 
 	return 0;
 err:

@@ -1,1 +1,1 @@
-/mnt/data2tb/LOS22/kernel/samsung/sm8450/drivers/base/regmap/internal.h
+/mnt/data2tb/LOS23/kernel/samsung/sm8450/drivers/base/regmap/internal.h

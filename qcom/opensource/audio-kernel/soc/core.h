@@ -1,1 +1,1 @@
-/mnt/data2tb/LOS22/kernel/samsung/sm8450/drivers/pinctrl/core.h
+/mnt/data2tb/LOS23/kernel/samsung/sm8450/drivers/pinctrl/core.h
